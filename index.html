@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Provisionii Care Services — Structured Home Care in Peoria, IL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#1B2B6B; --red:#C0272D; --cream:#F8F6F2; --white:#fff; --gray:#6B7280; --light:#EEF0F8; --dark:#0F1A42; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--navy); overflow-x:hidden; }
+
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:0.9rem 6%; background:rgba(15,26,66,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); }
+    .logo-wrap { display:flex; align-items:center; gap:0.7rem; }
+    .logo-text { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; color:white; }
+    .logo-text span { color:var(--red); }
+    .nav-links a { color:rgba(255,255,255,0.62); text-decoration:none; font-size:0.83rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; margin-left:2rem; transition:color 0.2s; }
+    .nav-links a:hover { color:white; }
+    .nav-cta { background:var(--red)!important; color:white!important; padding:0.48rem 1.2rem; border-radius:4px; }
+
+    /* HERO */
+    .hero { min-height:100vh; background:var(--dark); display:flex; align-items:center; padding:7rem 6% 5rem; position:relative; overflow:hidden; }
+    .hero-grid { position:absolute; inset:0; pointer-events:none; opacity:0.032; background-image:linear-gradient(white 1px,transparent 1px),linear-gradient(90deg,white 1px,transparent 1px); background-size:72px 72px; }
+    .hero-glow { position:absolute; top:-10%; right:-5%; width:60vw; height:60vw; background:radial-gradient(circle,rgba(192,39,45,0.1) 0%,transparent 65%); pointer-events:none; border-radius:50%; }
+    .hero-content { max-width:700px; position:relative; z-index:2; }
+    .eyebrow { display:inline-flex; align-items:center; gap:0.7rem; font-size:0.72rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-bottom:1.8rem; animation:fadeUp 0.8s 0.1s both; }
+    .eyebrow-line { width:28px; height:1px; background:var(--red); }
+    h1 { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,5vw,4.6rem); font-weight:900; color:white; line-height:1.08; margin-bottom:1.5rem; animation:fadeUp 0.8s 0.2s both; }
+    h1 em { font-style:italic; color:var(--red); }
+    .hero-sub { font-size:1.03rem; color:rgba(255,255,255,0.5); line-height:1.8; max-width:530px; margin-bottom:2.5rem; font-weight:300; animation:fadeUp 0.8s 0.3s both; }
+    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp 0.8s 0.4s both; }
+    .btn-red { display:inline-flex; align-items:center; gap:0.5rem; background:var(--red); color:white; padding:0.92rem 1.8rem; border-radius:5px; font-weight:600; font-size:0.93rem; text-decoration:none; box-shadow:0 4px 20px rgba(192,39,45,0.35); transition:transform 0.2s,box-shadow 0.2s; }
+    .btn-red:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(192,39,45,0.5); }
+    .btn-ghost { display:inline-flex; align-items:center; gap:0.5rem; background:transparent; color:white; padding:0.92rem 1.8rem; border-radius:5px; font-weight:500; font-size:0.93rem; text-decoration:none; border:1px solid rgba(255,255,255,0.2); transition:all 0.2s; }
+    .btn-ghost:hover { background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.4); }
+    .hero-trust { margin-top:2.2rem; font-size:0.77rem; color:rgba(255,255,255,0.28); letter-spacing:0.06em; animation:fadeUp 0.8s 0.5s both; }
+
+    /* SECTIONS */
+    section { padding:5.5rem 6%; }
+    .label { font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--red); margin-bottom:0.7rem; }
+    .s-title { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,3.2vw,2.6rem); font-weight:700; line-height:1.2; margin-bottom:1rem; }
+    .s-sub { font-size:0.95rem; color:var(--gray); line-height:1.78; max-width:510px; margin-bottom:2.8rem; }
+
+    /* PROBLEM */
+    .problem { background:white; }
+    .problem-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .prob-list { list-style:none; display:flex; flex-direction:column; gap:0.85rem; margin-bottom:1.2rem; }
+    .prob-list li { display:flex; align-items:center; gap:0.85rem; font-size:0.92rem; color:#374151; }
+    .prob-list li::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--red); flex-shrink:0; }
+    .prob-emotional { font-size:0.95rem; color:var(--navy); font-weight:500; font-style:italic; margin-bottom:1.8rem; padding-left:1rem; border-left:2px solid var(--red); }
+    .prob-callout { background:var(--navy); color:white; padding:2rem; border-radius:10px; border-left:4px solid var(--red); line-height:1.8; font-size:0.94rem; }
+    .prob-callout strong { font-size:1.08rem; display:block; margin-bottom:0.6rem; }
+    .prob-highlight { color:#ff9a9e; font-weight:600; }
+
+    /* DIFFERENCE */
+    .difference { background:var(--cream); }
+    .pillars { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.4rem; }
+    .pillar { background:white; border-radius:10px; padding:2rem; border:1px solid #E5E7EB; position:relative; overflow:hidden; transition:transform 0.25s,box-shadow 0.25s; }
+    .pillar:hover { transform:translateY(-4px); box-shadow:0 14px 40px rgba(27,43,107,0.1); }
+    .pillar-bg { font-family:'Playfair Display',serif; font-size:4rem; font-weight:900; color:var(--light); position:absolute; top:-0.8rem; right:0.8rem; line-height:1; user-select:none; pointer-events:none; }
+    .pillar-bar { width:26px; height:3px; background:var(--red); border-radius:2px; margin-bottom:0.9rem; }
+    .pillar h3 { font-size:0.98rem; font-weight:600; color:var(--navy); margin-bottom:0.45rem; }
+    .pillar p { font-size:0.84rem; color:var(--gray); line-height:1.65; }
+
+    /* SERVICES */
+    .services { background:var(--navy); }
+    .services .label { color:rgba(255,180,180,0.75); }
+    .services .s-title { color:white; }
+    .services .s-sub { color:rgba(255,255,255,0.43); }
+    .svc-note { font-size:0.88rem; color:rgba(255,255,255,0.5); font-style:italic; margin-bottom:1.5rem; padding:0.9rem 1.2rem; background:rgba(255,255,255,0.05); border-left:3px solid var(--red); border-radius:0 6px 6px 0; max-width:600px; }
+    .svc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:1px; background:rgba(255,255,255,0.07); border-radius:10px; overflow:hidden; margin-bottom:2.2rem; }
+    .svc-item { background:rgba(255,255,255,0.03); padding:1.4rem 1.6rem; display:flex; align-items:center; gap:0.85rem; font-size:0.88rem; color:rgba(255,255,255,0.7); transition:background 0.2s; }
+    .svc-item:hover { background:rgba(255,255,255,0.07); }
+    .svc-icon { font-size:1.2rem; flex-shrink:0; }
+
+    /* HOW IT WORKS */
+    .how { background:white; }
+    .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); }
+    .step { padding:2rem 1.5rem; border-left:1px solid #F3F4F6; }
+    .step:first-child { border-left:none; }
+    .step-num { font-family:'Playfair Display',serif; font-size:2.8rem; font-weight:900; color:var(--red); opacity:0.18; line-height:1; margin-bottom:0.9rem; }
+    .step h3 { font-size:0.97rem; font-weight:600; color:var(--navy); margin-bottom:0.45rem; }
+    .step p { font-size:0.84rem; color:var(--gray); line-height:1.65; }
+    .step-extra { font-size:0.82rem; color:var(--red); font-weight:500; margin-top:0.6rem; font-style:italic; }
+
+    /* TESTIMONIALS */
+    .testimonials { background:var(--cream); }
+    .testi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.4rem; }
+    .testi { background:white; border-radius:10px; padding:2rem; border:1px solid #E5E7EB; position:relative; }
+    .testi-q { font-family:'Playfair Display',serif; font-size:4rem; color:var(--red); opacity:0.1; position:absolute; top:-0.3rem; left:1rem; line-height:1; }
+    .testi p { font-size:0.91rem; color:#374151; line-height:1.75; font-style:italic; margin-bottom:1.1rem; }
+    .testi-by { font-size:0.73rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:0.1em; }
+
+    /* OS LAYER */
+    .os { background:var(--navy); }
+    .os .label { color:rgba(255,180,180,0.75); }
+    .os-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .os-proof-label { font-size:0.88rem; color:rgba(255,255,255,0.55); font-weight:500; margin-bottom:1.2rem; font-style:italic; }
+    .os-list { list-style:none; display:flex; flex-direction:column; gap:1rem; }
+    .os-list li { display:flex; align-items:flex-start; gap:0.9rem; font-size:0.91rem; color:rgba(255,255,255,0.7); line-height:1.65; }
+    .os-dot { width:19px; height:19px; min-width:19px; background:var(--red); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.58rem; color:white; font-weight:700; margin-top:2px; }
+    .os-copy { font-size:0.95rem; color:rgba(255,255,255,0.4); line-height:1.88; }
+    .os-copy strong { color:rgba(255,255,255,0.68); }
+
+    /* FINAL CTA */
+    .final { background:var(--red); text-align:center; padding:5.5rem 6%; }
+    .final .s-title { color:white; margin-bottom:0.8rem; }
+    .final p { color:rgba(255,255,255,0.7); font-size:0.97rem; line-height:1.78; max-width:460px; margin:0 auto 2.3rem; }
+    .final-btns { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+    .btn-white { display:inline-flex; align-items:center; gap:0.5rem; background:white; color:var(--red); padding:0.95rem 1.9rem; border-radius:5px; font-weight:700; font-size:0.95rem; text-decoration:none; box-shadow:0 4px 20px rgba(0,0,0,0.12); transition:transform 0.2s,box-shadow 0.2s; }
+    .btn-white:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,0,0,0.2); }
+    .btn-ghost2 { display:inline-flex; align-items:center; gap:0.5rem; background:transparent; color:white; padding:0.95rem 1.9rem; border-radius:5px; font-weight:500; font-size:0.95rem; text-decoration:none; border:1px solid rgba(255,255,255,0.32); transition:all 0.2s; }
+    .btn-ghost2:hover { background:rgba(255,255,255,0.1); }
+
+    /* FOOTER */
+    footer { background:var(--dark); color:rgba(255,255,255,0.36); padding:2.3rem 6%; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-size:0.78rem; }
+    .footer-logo-wrap { display:flex; align-items:center; gap:0.6rem; }
+    footer a { color:rgba(255,255,255,0.36); text-decoration:none; margin-left:1.4rem; transition:color 0.2s; }
+    footer a:hover { color:white; }
+
+    @media(max-width:768px) { .problem-grid,.os-grid { grid-template-columns:1fr; gap:2.5rem; } .nav-links { display:none; } .step { border-left:none; border-top:1px solid #F3F4F6; } .step:first-child { border-top:none; } }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-wrap">
+    <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="18" r="12" fill="#C0272D"/>
+      <path d="M50 30 L50 65 M50 65 L30 90 M50 65 L70 90 M50 40 L20 55 M50 40 L80 55" stroke="white" stroke-width="9" stroke-linecap="round"/>
+    </svg>
+    <div class="logo-text">Provision<span>ii</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#how">How It Works</a>
+    <a href="/careers">Careers</a>
+    <a href="#contact" class="nav-cta">Request Care</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="eyebrow"><div class="eyebrow-line"></div>Non-Medical Home Care · Peoria, IL</div>
+    <h1>Care you can rely on —<br/><em>structured,</em> consistent,<br/>and predictable.</h1>
+    <p class="hero-sub">Provisionii Care Services provides non-medical home care with clear schedules, consistent caregivers, and system-driven oversight — so families always know who's coming, when, and what care will look like.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-red">Request Care <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#how" class="btn-ghost">Check Availability</a>
+    </div>
+    <div class="hero-trust">📍 Serving Peoria, IL &amp; surrounding areas</div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-grid">
+    <div>
+      <div class="label">The Problem</div>
+      <h2 class="s-title">Home care shouldn't feel unpredictable.</h2>
+      <p class="s-sub">Most families struggle with the same issues when seeking care for a loved one.</p>
+      <ul class="prob-list">
+        <li>Missed visits or late caregivers</li>
+        <li>Inconsistent support from visit to visit</li>
+        <li>Poor communication with the agency</li>
+        <li>No clear plan — just reactive care</li>
+      </ul>
+      <p class="prob-emotional">And families are left filling the gaps.</p>
+      <p style="font-size:0.93rem;color:var(--gray);line-height:1.7;">Care becomes reactive instead of reliable.</p>
+    </div>
+    <div class="prob-callout">
+      <strong>You shouldn't have to manage your care provider.</strong>
+      Families spend more time chasing updates, covering missed visits, and wondering what happens next — instead of focusing on the person they love.<br/><br/>
+      <span class="prob-highlight">Provisionii changes that.</span>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENCE -->
+<section class="difference">
+  <div class="label">How Provisionii Works</div>
+  <h2 class="s-title">Built on structure — not guesswork.</h2>
+  <p class="s-sub">Four pillars define every care relationship we build at Provisionii.</p>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-bg">1</div>
+      <div class="pillar-bar"></div>
+      <h3>Structured Care Plans</h3>
+      <p>Every client has a documented care plan — not just hours. We define what care looks like, when, and why.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-bg">2</div>
+      <div class="pillar-bar"></div>
+      <h3>Consistent Scheduling</h3>
+      <p>Care shows up on time, on schedule — every time. No guessing, no gaps, no surprises.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-bg">3</div>
+      <div class="pillar-bar"></div>
+      <h3>Caregiver Alignment</h3>
+      <p>We match caregivers based on specific needs and compatibility — not just who's available.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-bg">4</div>
+      <div class="pillar-bar"></div>
+      <h3>System-Driven Oversight</h3>
+      <p>We track, manage, and adjust care through structured systems — not manual follow-ups or memory.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="label">What We Offer</div>
+  <h2 class="s-title">Support where it matters most.</h2>
+  <p class="s-sub">Comprehensive non-medical home care services, delivered consistently.</p>
+  <div class="svc-note">All services are delivered through a structured care plan and consistent schedule — not improvised visit to visit.</div>
+  <div class="svc-grid">
+    <div class="svc-item"><div class="svc-icon">🤲</div>Personal care assistance</div>
+    <div class="svc-item"><div class="svc-icon">🍽️</div>Meal preparation</div>
+    <div class="svc-item"><div class="svc-icon">💊</div>Medication reminders</div>
+    <div class="svc-item"><div class="svc-icon">🧹</div>Light housekeeping</div>
+    <div class="svc-item"><div class="svc-icon">🤝</div>Companionship</div>
+    <div class="svc-item"><div class="svc-icon">🚗</div>Transportation &amp; errands</div>
+  </div>
+  <a href="#contact" class="btn-ghost">View Full Services</a>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="label">The Process</div>
+  <h2 class="s-title">Simple, clear, and structured.</h2>
+  <p class="s-sub">Four steps from your first inquiry to consistent, reliable care.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Request Care</h3>
+      <p>Tell us what you need. We listen first — no pressure, no rush.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Care Plan Setup</h3>
+      <p>We build a structured plan around your situation, schedule, and specific needs.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Care Begins</h3>
+      <p>A consistent, matched caregiver starts on a reliable, documented schedule.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Ongoing Oversight</h3>
+      <p>We monitor, adjust, and ensure quality — proactively, not reactively.</p>
+      <p class="step-extra">You're never left wondering what's happening — we stay ahead of it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="label">Trusted By Families</div>
+  <h2 class="s-title">Trusted by families in Peoria.</h2>
+  <p class="s-sub">What families say about care they can finally count on.</p>
+  <div class="testi-grid">
+    <div class="testi">
+      <div class="testi-q">"</div>
+      <p>Reliable and consistent — exactly what we needed. For the first time in years, we don't worry about whether care will show up.</p>
+      <div class="testi-by">— Peoria Family</div>
+    </div>
+    <div class="testi">
+      <div class="testi-q">"</div>
+      <p>We finally feel like care is under control. The structure and communication is unlike anything we've experienced before.</p>
+      <div class="testi-by">— Local Client Family</div>
+    </div>
+    <div class="testi">
+      <div class="testi-q">"</div>
+      <p>Clear communication and dependable support. They do what they say they're going to do — every single time.</p>
+      <div class="testi-by">— Peoria Area Client</div>
+    </div>
+  </div>
+</section>
+
+<!-- OS LAYER -->
+<section class="os">
+  <div class="os-grid">
+    <div>
+      <div class="label">How We're Different</div>
+      <h2 class="s-title" style="color:white">Care backed by a system.</h2>
+      <p class="s-sub" style="color:rgba(255,255,255,0.43);margin-bottom:1.2rem;">We don't rely on chance — we rely on systems built to ensure reliability at every level of care.</p>
+      <p class="os-proof-label">This is what reliable care actually looks like:</p>
+      <ul class="os-list">
+        <li><div class="os-dot">✓</div>Reliable scheduling — every time, not most times</li>
+        <li><div class="os-dot">✓</div>Clear communication between caregivers and families</li>
+        <li><div class="os-dot">✓</div>Consistent quality through documented oversight</li>
+        <li><div class="os-dot">✓</div>Proactive adjustments — not reactive fixes</li>
+        <li><div class="os-dot">✓</div>Illinois-licensed non-medical home care agency</li>
+      </ul>
+    </div>
+    <div class="os-copy">
+      <strong>Most agencies manage care through habit and memory.</strong><br/><br/>
+      We manage it through systems — so care doesn't depend on one person doing everything right.<br/><br/>
+      Structured intake. Defined care plans. Consistent caregiver assignments. Ongoing oversight that runs independently of any single person.<br/><br/>
+      <strong>That's the Provisionii difference.</strong><br/><br/>
+      Whether you need care for a parent, a spouse, or yourself — you deserve a team that operates with clarity, not chaos.
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="contact">
+  <h2 class="s-title">Get the care your family can depend on.</h2>
+  <p>Ready to get started? Reach out today and a Provisionii team member will respond within 24 hours — often sooner.</p>
+  <div class="final-btns">
+    <a href="mailto:care@provisionii.com" class="btn-white">
+      Request Care
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="tel:+1" class="btn-ghost2">Speak With Our Team</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo-wrap">
+    <svg width="28" height="28" viewBox="0 0 100 100" fill="none" style="opacity:0.5">
+      <circle cx="50" cy="18" r="12" fill="#C0272D"/>
+      <path d="M50 30 L50 65 M50 65 L30 90 M50 65 L70 90 M50 40 L20 55 M50 40 L80 55" stroke="white" stroke-width="9" stroke-linecap="round"/>
+    </svg>
+    <span style="color:rgba(255,255,255,0.45);font-family:'Playfair Display',serif;font-size:1rem;">Provisionii</span>
+  </div>
+  <div>Peoria, IL &nbsp;·&nbsp; care@provisionii.com</div>
+  <div>
+    <a href="#services">Services</a>
+    <a href="#how">How It Works</a>
+    <a href="/careers">Careers</a>
+  </div>
+</footer>
+
+</body>
+</html>
