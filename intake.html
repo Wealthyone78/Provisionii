@@ -107,7 +107,7 @@
       <div class="field"><label>Relationship to Client <span class="req">*</span></label><select><option value="">Select...</option><option>Self</option><option>Spouse / Partner</option><option>Adult Child</option><option>Sibling</option><option>Friend</option><option>Other</option></select></div>
     </div>
     <div class="field-group">
-      <div class="field"><label>Phone Number <span class="req">*</span></label><input type="tel" placeholder="(309) 000-0000"/></div>
+      <div class="field"><label>Phone Number <span class="req">*</span></label><input type="tel" placeholder="(309) 000-0000" oninput="var r=this.value.replace(/\D/g,'').substring(0,10);var f='';if(r.length>6)f='('+r.substring(0,3)+') '+r.substring(3,6)+'-'+r.substring(6);else if(r.length>3)f='('+r.substring(0,3)+') '+r.substring(3);else if(r.length)f='('+r;this.value=f;"/></div>
       <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" placeholder="you@email.com"/></div>
     </div>
     <div class="field-group full"><div class="field"><label>Address Where Care Will Be Provided <span class="req">*</span></label><input type="text" placeholder="Street address, city, state, zip"/></div></div>
