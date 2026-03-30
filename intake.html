@@ -110,7 +110,7 @@
       <div class="field"><label>Phone Number <span class="req">*</span></label><input type="tel" placeholder="(309) 000-0000" oninput="var r=this.value.replace(/\D/g,'').substring(0,10);var f='';if(r.length>6)f='('+r.substring(0,3)+') '+r.substring(3,6)+'-'+r.substring(6);else if(r.length>3)f='('+r.substring(0,3)+') '+r.substring(3);else if(r.length)f='('+r;this.value=f;"/></div>
       <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" placeholder="you@email.com"/></div>
     </div>
-    <div class="field-group full"><div class="field"><label>Address Where Care Will Be Provided <span class="req">*</span></label><input type="text" placeholder="Street address, city, state, zip"/></div></div>
+    <div class="field-group full"><div class="field"><label>Address Where Care Will Be Provided <span class="req">*</span></label><input type="text" id="addressInput" placeholder="Start typing your address..." autocomplete="off"/><div id="addressMap" style="margin-top:0.8rem;border-radius:8px;overflow:hidden;height:200px;display:none;border:1px solid var(--border)"></div></div></div>
     <div class="form-nav"><div></div><div class="step-dots" id="dots-1"></div><button class="btn-next" onclick="nextSection(1)">Next <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
   </div>
 
@@ -251,5 +251,5 @@
   function submitForm(){if(!document.getElementById('consent').checked){alert('Please consent to be contacted before submitting.');return}document.querySelectorAll('.form-section').forEach(s=>s.classList.remove('active'));document.getElementById('success').classList.add('show');document.getElementById('progressFill').style.width='100%';document.getElementById('progressLabel').textContent='Complete!';window.scrollTo({top:0,behavior:'smooth'})}
   buildDots();updateProgress();
 </script>
-</body>
+<script>function initAutocomplete(){var input=document.getElementById("addressInput");if(!input)return;var ac=new google.maps.places.Autocomplete(input,{types:["address"],componentRestrictions:{country:"us"},fields:["formatted_address","geometry"]});var mapDiv=document.getElementById("addressMap");var map,marker;ac.addListener("place_changed",function(){var place=ac.getPlace();if(!place.geometry)return;input.value=place.formatted_address;mapDiv.style.display="block";if(!map){map=new google.maps.Map(mapDiv,{zoom:15,center:place.geometry.location,mapTypeControl:false,streetViewControl:false,fullscreenControl:false});marker=new google.maps.Marker({map:map,position:place.geometry.location})}else{map.setCenter(place.geometry.location);marker.setPosition(place.geometry.location)}})}</script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnuxfbyh_kNDBsAVzSqSNHs-AIpaDVE2c&libraries=places&callback=initAutocomplete" async defer></script></body>
 </html>
