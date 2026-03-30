@@ -131,7 +131,7 @@
     </div>
     <div class="field">
       <label>Message <span class="req">*</span></label>
-      <textarea id="message" placeholder="Tell us what you are looking for or ask any questions..."></textarea>
+      <textarea id="message" placeholder="Tell us what you are looking for or ask any questions..."></textarea><button type="button" onclick="improveText('message')" style="margin-top:0.6rem;background:var(--navy);color:white;border:none;padding:0.5rem 1.2rem;border-radius:5px;font-size:0.8rem;cursor:pointer;font-family:DM Sans,sans-serif;">✨ Clean Up My Message</button><div id="message-result" style="display:none;margin-top:0.8rem;background:#f0f7ff;border:1px solid #c0d8f0;border-radius:8px;padding:1rem;font-size:0.85rem;"></div>
     </div>
     <button class="btn-submit" onclick="submitContact()">Send Message <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     <div class="success-msg" id="successMsg">Message received! We will be in touch within 24 hours.</div>
@@ -285,7 +285,7 @@ cat > ~/provisionii/contact.html << 'HTMLEOF'
     </div>
     <div class="field">
       <label>Message <span class="req">*</span></label>
-      <textarea id="message" placeholder="Tell us what you are looking for or ask any questions..."></textarea>
+      <textarea id="message" placeholder="Tell us what you are looking for or ask any questions..."></textarea><button type="button" onclick="improveText('message')" style="margin-top:0.6rem;background:var(--navy);color:white;border:none;padding:0.5rem 1.2rem;border-radius:5px;font-size:0.8rem;cursor:pointer;font-family:DM Sans,sans-serif;">✨ Clean Up My Message</button><div id="message-result" style="display:none;margin-top:0.8rem;background:#f0f7ff;border:1px solid #c0d8f0;border-radius:8px;padding:1rem;font-size:0.85rem;"></div>
     </div>
     <button class="btn-submit" onclick="submitContact()">Send Message <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     <div class="success-msg" id="successMsg">Message received! We will be in touch within 24 hours.</div>
@@ -315,6 +315,6 @@ cat > ~/provisionii/contact.html << 'HTMLEOF'
     document.querySelector('.btn-submit').disabled=true;
     document.querySelector('.btn-submit').style.opacity='0.5';
   }
-</script>
+async function improveText(id){var ta=document.getElementById(id);var text=ta.value.trim();if(!text){alert("Please type something first.");return;}var btn=ta.nextElementSibling;btn.textContent="Improving...";btn.disabled=true;try{var res=await fetch("/api/improve-text",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:text})});var data=await res.json();var resultDiv=document.getElementById(id+"-result");resultDiv.style.display="block";resultDiv.innerHTML="<strong style=color:var(--navy)>Suggested rewrite:</strong><p style=margin:0.5rem 0;line-height:1.6>"+data.improved+"</p><div style=display:flex;gap:0.5rem;margin-top:0.8rem><button onclick=acceptImproved(""+id+"") style=background:var(--navy);color:white;border:none;padding:0.4rem 1rem;border-radius:5px;font-size:0.8rem;cursor:pointer>Accept</button><button onclick=keepOriginal(""+id+"") style=background:transparent;border:1px solid var(--border);padding:0.4rem 1rem;border-radius:5px;font-size:0.8rem;cursor:pointer>Keep Original</button></div>";}catch(e){alert("Could not improve text. Please try again.");}btn.textContent="✨ Clean Up My Message";btn.disabled=false;}function acceptImproved(id){var resultDiv=document.getElementById(id+"-result");var improved=resultDiv.querySelector("p").textContent;document.getElementById(id).value=improved;resultDiv.style.display="none";}function keepOriginal(id){document.getElementById(id+"-result").style.display="none";}
 </body>
 </html>
