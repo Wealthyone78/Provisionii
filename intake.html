@@ -110,7 +110,7 @@
       <div class="field"><label>Phone Number <span class="req">*</span></label><input type="tel" placeholder="(309) 000-0000" oninput="var r=this.value.replace(/\D/g,'').substring(0,10);var f='';if(r.length>6)f='('+r.substring(0,3)+') '+r.substring(3,6)+'-'+r.substring(6);else if(r.length>3)f='('+r.substring(0,3)+') '+r.substring(3);else if(r.length)f='('+r;this.value=f;"/></div>
       <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" placeholder="you@email.com"/></div>
     </div>
-    <div class="field-group full"><div class="field"><label>Address Where Care Will Be Provided <span class="req">*</span></label><input type="text" placeholder="Street address, city, state, zip"/></div></div>
+    <div class="field-group full"><div class="field"><label>Address Where Care Will Be Provided <span class="req">*</span></label><input type="text" id="addressInput" placeholder="Start typing your address..." autocomplete="off"/><div id="addressMap" style="margin-top:0.8rem;border-radius:8px;overflow:hidden;height:200px;display:none;border:1px solid var(--border)"></div></div></div>
     <div class="form-nav"><div></div><div class="step-dots" id="dots-1"></div><button class="btn-next" onclick="nextSection(1)">Next <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
   </div>
 
@@ -196,7 +196,7 @@
   <div class="form-section" id="section-7">
     <div class="section-header"><div class="section-num">7</div><div class="section-info"><h2>Funding &amp; Payment</h2><p>Qualifies the engagement early — no wasted time.</p></div></div>
     <div class="field-group full"><div class="field"><label>How will care be paid for? <span class="req">*</span></label><div class="toggle-group" data-group="payment"><label class="toggle"><input type="radio" name="payment" value="Private pay"/>Private pay</label><label class="toggle"><input type="radio" name="payment" value="Medicaid"/>Medicaid</label><label class="toggle"><input type="radio" name="payment" value="LTC Insurance"/>LTC Insurance</label><label class="toggle"><input type="radio" name="payment" value="Veterans benefits"/>Veterans benefits</label><label class="toggle"><input type="radio" name="payment" value="Unsure"/>Unsure</label></div></div></div>
-    <div class="field-group full"><div class="field"><label>Budget Range (optional)</label><div class="toggle-group" data-group="budget"><label class="toggle"><input type="radio" name="budget" value="Under $20/hr"/>&lt;$20/hr</label><label class="toggle"><input type="radio" name="budget" value="$20–$30/hr"/>$20–$30/hr</label><label class="toggle"><input type="radio" name="budget" value="$30+/hr"/>$30+/hr</label><label class="toggle"><input type="radio" name="budget" value="Unsure"/>Unsure</label></div></div></div>
+    <div class="field-group full"><div class="field"><label>Budget Range (optional)</label><div class="toggle-group" data-group="budget"><label class="toggle"><input type="radio" name="budget" value="$25/hr"/>$25/hr</label><label class="toggle"><input type="radio" name="budget" value="$25-$45/hr"/>$25-$45/hr</label><label class="toggle"><input type="radio" name="budget" value="$45-$60/hr"/>$45-$60/hr</label><label class="toggle"><input type="radio" name="budget" value="$60-$75/hr"/>$60-$75/hr</label><label class="toggle"><input type="radio" name="budget" value="$75+/hr"/>$75+/hr</label><label class="toggle"><input type="radio" name="budget" value="Unsure"/>Unsure</label></div></div></div>
     <div class="form-nav"><button class="btn-back" onclick="prevSection(7)">← Back</button><div class="step-dots" id="dots-7"></div><button class="btn-next" onclick="nextSection(7)">Next <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
   </div>
 
@@ -212,7 +212,7 @@
   <!-- S9: NOTES -->
   <div class="form-section" id="section-9">
     <div class="section-header"><div class="section-num">9</div><div class="section-info"><h2>Anything Else?</h2><p>This is where real insight shows up.</p></div></div>
-    <div class="field-group full"><div class="field"><label>Anything else we should know?</label><textarea placeholder="Personality, preferences, past care experiences, specific concerns, family dynamics — anything that helps us serve you better..." style="min-height:130px"></textarea></div></div>
+    <div class="field-group full"><div class="field"><label>Anything else we should know?</label><textarea id="anythingElse" placeholder="Personality, preferences, past care experiences, specific concerns, family dynamics — anything that helps us serve you better..." style="min-height:130px"></textarea></div></div>
     <div class="form-nav"><button class="btn-back" onclick="prevSection(9)">← Back</button><div class="step-dots" id="dots-9"></div><button class="btn-next" onclick="nextSection(9)">Next <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
   </div>
 
