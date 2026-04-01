@@ -249,7 +249,7 @@
   document.querySelector('input[name="behavioral"][value="Yes"]').closest('.toggle').addEventListener('click',()=>{document.getElementById('beh-notes').style.display='grid'});
   document.querySelector('input[name="behavioral"][value="No"]').closest('.toggle').addEventListener('click',()=>{document.getElementById('beh-notes').style.display='none'});
   function submitForm(){if(!document.getElementById('consent').checked){alert('Please consent to be contacted before submitting.');return}document.querySelectorAll('.form-section').forEach(s=>s.classList.remove('active'));document.getElementById('success').classList.add('show');document.getElementById('progressFill').style.width='100%';document.getElementById('progressLabel').textContent='Complete!';window.scrollTo({top:0,behavior:'smooth'})}
-  buildDots();updateProgress();
+  fetch('https://hook.us2.make.com/8s8u0jaryhudpj4s3832cvpanl7id0wc',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('name')?.value,phone:document.getElementById('phone')?.value,email:document.getElementById('email')?.value,address:document.getElementById('address')?.value,services:[...document.querySelectorAll('.chip.selected')].map(c=>c.textContent).join(', '),notes:document.getElementById('notes')?.value,source:'Website Intake Form'})}).catch(()=>{});buildDots();updateProgress();
 </script>
 </body>
 </html>
