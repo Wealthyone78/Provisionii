@@ -1,0 +1,11 @@
+import Link from "@/components/static-link";
+import type { ActiveService } from "@/content/site";
+import { ArrowLeft, ArrowRight } from "@/components/preview/Icons";
+import Motion from "@/components/preview/Motion";
+export function ServicePage({ service }: { readonly service: ActiveService }) {
+  return <><section className="subhero wrap service-detail-hero"><Link className="back-link" href="/solutions"><ArrowLeft size={16} />All solutions</Link><p className="eyebrow">{service.eyebrow}</p><h1>{service.headline}</h1><p className="intro">{service.description}</p><div className="job-actions job-actions-top"><Link className="button" href={service.cta.href}>{service.cta.label}<span><ArrowRight size={18} /></span></Link><Link className="text-link" href="/contact">Talk with a team member</Link></div></section>
+    <section className="identity-section wrap service-fit"><div data-reveal><p className="eyebrow">THE RIGHT ENGAGEMENT</p><h2>When it fits</h2></div><ul>{service.fit.map(item=><li key={item}>{item}</li>)}</ul></section>
+    <section className="program-process wrap service-process-preview"><div data-reveal><p className="eyebrow">FROM NEED TO NEXT STEP</p><h2>What Provisionii does</h2><p className="intro">A clear path, with responsibilities agreed before an engagement begins.</p></div><ol>{service.process.map((step,index)=><li key={step.title} data-reveal><span>{String(index+1).padStart(2,"0")}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></li>)}</ol></section>
+    <section className="program-boundary wrap"><h2>{service.distinctionTitle}</h2><p>{service.distinctionBody}</p>{service.secondaryDistinction ? <div id={service.secondaryDistinction.id} className="service-secondary-distinction"><h2>{service.secondaryDistinction.title}</h2><p>{service.secondaryDistinction.body}</p></div> : null}</section>
+    <section className="closing-shell"><div className="closing wrap"><p className="eyebrow">PEOPLE. PURPOSE. POSSIBILITY.</p><h2>{service.closingTitle}</h2><div className="closing-bottom"><p>{service.closingBody}</p><Link className="button light" href={service.cta.href}>{service.cta.label}<span><ArrowRight size={18} /></span></Link></div></div></section><Motion /></>;
+}

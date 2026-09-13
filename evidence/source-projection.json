@@ -1,0 +1,122 @@
+{
+  "source": "Accepted local Provisionii website components, exported as a website-only candidate",
+  "remoteParent": "72f8077420815fd22fe3ae1e436043fc57720317",
+  "copied": [
+    {
+      "file": "package.json",
+      "sha256": "12a7470f8fa0309b683b22ab0b62351c0027e33be1b42429c9ca326e6cd22045"
+    },
+    {
+      "file": "package-lock.json",
+      "sha256": "5b35483cea5ed9fb00d3c9c62680e1cbccc6ff81d217574c5ed595ad1a83098a"
+    },
+    {
+      "file": "tsconfig.json",
+      "sha256": "16d252857e2938990fccffd4dd59207f4d000c43ec760007a0eb6a9bf2fce754"
+    },
+    {
+      "file": "next-env.d.ts",
+      "sha256": "1b59d4c6b83807db275d43f3cf2cc8e9323f465fab764eea091cc5becd5bad37"
+    },
+    {
+      "file": "eslint.config.mjs",
+      "sha256": "6e1780ab6584d4900fe54ad1ac8e819e8423406b0c9e401c4363386c07d979a7"
+    },
+    {
+      "file": "app/page.tsx",
+      "sha256": "32464eb7ae6f614af86d235f327e924b84f0d233b438adb933df2a0e9a1302d5"
+    },
+    {
+      "file": "app/about/page.tsx",
+      "sha256": "a069cebc6ee6685c51e88b0b15ccb20e3899f9f7f54381edb74691984d0028c3"
+    },
+    {
+      "file": "app/solutions/page.tsx",
+      "sha256": "44ab22f983b0d2e4e52035e46fe663886ea0c5d3d9cf512e81616e28b9ee4481"
+    },
+    {
+      "file": "app/workforce-programs/page.tsx",
+      "sha256": "7633cc93d7589e208d8d8c6003b663d5c76a79de9a30665300a62d53761f0ae8"
+    },
+    {
+      "file": "app/globals.css",
+      "sha256": "72e797c03b7363468ae39f94d41b28dab211c4321378f510869c12eec4455af8"
+    },
+    {
+      "file": "app/preview.css",
+      "sha256": "7b5fbbcc6c15fcca6ac58d232bececbdc726da94d4f99a3cb1a19c62221b0ef3"
+    },
+    {
+      "file": "app/icon.svg",
+      "sha256": "99e3fc81ee706c3dccf69cf5fdb729312ee3650dc1d333afbb6a710c57626b8c"
+    },
+    {
+      "file": "app/fonts/poppins-regular.ttf",
+      "sha256": "cdedb1729acac414ed01744a11da7badb86adf13108e7bd3fa161b9323f7fe54"
+    },
+    {
+      "file": "app/fonts/poppins-medium.ttf",
+      "sha256": "fcff04f4bec2b3636f05ed894dc1f9a752c4cb587ee49857ec7a82abaf6ca016"
+    },
+    {
+      "file": "app/fonts/poppins-semibold.ttf",
+      "sha256": "dae40ca7b35fe7501bda2e4140a6860b1db47330be5d3c8ab6971fd83a70e9a5"
+    },
+    {
+      "file": "components/preview/Icons.tsx",
+      "sha256": "d33c67c1c76765411e20050dde8c3bc0c8bf3a9382d76e9fe1a337db555871b1"
+    },
+    {
+      "file": "components/preview/Navigation.tsx",
+      "sha256": "848e552ae6098084574aacd3e0cad9075fa5e3fbbfd6daa4ed2e66e86712d6e8"
+    },
+    {
+      "file": "components/preview/Motion.tsx",
+      "sha256": "f3048a69a0e1157c6e06f8a4eb0e2d9c8df79668b2abf001fe9ef07b060e5112"
+    },
+    {
+      "file": "components/site-header.tsx",
+      "sha256": "ba11b2dca21230b260f8e98ec5148a99f9084d6ba7522c3bd308e31a72b12bbd"
+    },
+    {
+      "file": "components/marketing/service-page.tsx",
+      "sha256": "2a85a73a5eca974251a682486242ea3db3a9ee4bc53d1ba3a9afbbfc6f59010f"
+    },
+    {
+      "file": "content/site.ts",
+      "sha256": "52b94fcb5a81da0dd723c288e29f55d84ed30b46c51ce6a51aa6d51fa03cab29"
+    },
+    {
+      "file": "lib/analytics.ts",
+      "sha256": "8894a60be2d6b1a151b4ea3083b4a326693742b0ca53876d0306c27fabd01d40"
+    },
+    {
+      "file": "app/workforce-solutions/direct-hire/page.tsx",
+      "sha256": "a77416ba6f9ee7039ddfc5ad5348c4daf46e457071f29ea3d1e7b8bf2bdeef64"
+    },
+    {
+      "file": "app/workforce-solutions/contract-staffing/page.tsx",
+      "sha256": "6889ee6fdaaf31a0013057c078477d207ea3be59c1e10b29dd13437146d8a948"
+    },
+    {
+      "file": "app/workforce-solutions/staff-augmentation/page.tsx",
+      "sha256": "4992b97d067e0e5a1b6c5917855be59b8fce9575fb22c49e6e482f96548d137c"
+    },
+    {
+      "file": "public/provisionii-logo.png",
+      "sha256": "fb4f3ce1b003af5b6c2b87cf81422d4cad61e9da3c7d697633ca5413687cdac6"
+    },
+    {
+      "file": "public/brand/provisionii-mark.svg",
+      "sha256": "24d40a29fad5958975d684153c0114379a0e57c802a74a6fec8841e8b85b9be6"
+    }
+  ],
+  "overrides": [
+    "layout/navigation/footer",
+    "closed information pages",
+    "website-only privacy and terms proposals",
+    "canonical/crawler metadata",
+    "static build and deployment controls"
+  ],
+  "historicalReconstitutionClaim": false
+}
