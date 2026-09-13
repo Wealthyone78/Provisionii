@@ -1,0 +1,1 @@
+import type {MetadataRoute} from "next";export const dynamic="force-static";export default function robots():MetadataRoute.Robots{return {rules:{userAgent:"*",allow:"/",disallow:["/api/","/review","/client-review","/recruiter","/account","/receipts/"]},sitemap:"https://www.provisionii.com/sitemap.xml"};}

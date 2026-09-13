@@ -1,0 +1,156 @@
+{
+  "version": "PUBLIC-WEBSITE-20260913-1",
+  "artifactTreeSha256": "b821540c812692bae86e44c7bfc743f3ce55e207e8aeb351df61c4a3ad9d12de",
+  "publicParent": "72f8077420815fd22fe3ae1e436043fc57720317",
+  "historicalRecoveredParent": "unavailable; not represented as recovered or as an ancestor",
+  "scope": "Informational public website only; no collection or operational backend",
+  "productionApproval": "PENDING",
+  "build": "Next static export; deployment uses frozen static bytes",
+  "validation": {
+    "createdAt": "2026-09-13T22:27:38.780Z",
+    "routes": [
+      {
+        "route": "/",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/about",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/careers",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/contact",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/find-talent",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/privacy",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/terms",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/solutions",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/talent-network",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/workforce-programs",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/workforce-solutions/direct-hire",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/workforce-solutions/contract-staffing",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      },
+      {
+        "route": "/workforce-solutions/staff-augmentation",
+        "status": 200,
+        "oneH1": true,
+        "canonical": true,
+        "noCollection": true
+      }
+    ],
+    "denied": [
+      {
+        "route": "/recruiter",
+        "status": 404
+      },
+      {
+        "route": "/revenue",
+        "status": 404
+      },
+      {
+        "route": "/review",
+        "status": 404
+      },
+      {
+        "route": "/api/applications",
+        "status": 404
+      },
+      {
+        "route": "/api/client-intake",
+        "status": 404
+      },
+      {
+        "route": "/api/recruiter",
+        "status": 404
+      },
+      {
+        "route": "/api/revenue",
+        "status": 404
+      },
+      {
+        "route": "/jobs/synthetic-proof",
+        "status": 404
+      },
+      {
+        "route": "/evidence",
+        "status": 404
+      },
+      {
+        "route": "/ops",
+        "status": 404
+      },
+      {
+        "route": "/.env",
+        "status": 404
+      },
+      {
+        "route": "/login",
+        "status": 404
+      }
+    ],
+    "assets": 116
+  }
+}

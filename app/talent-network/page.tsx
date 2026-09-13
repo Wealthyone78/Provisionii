@@ -1,0 +1,3 @@
+import Link from "@/components/static-link";import {buildMetadata} from "@/lib/metadata";
+export const metadata=buildMetadata({title:"Talent Network availability",description:"Talent Network registration is not open yet.",path:"/talent-network"});
+export default function Page(){return <section className="subhero wrap public-information"><p className="eyebrow">TALENT NETWORK</p><h1>Future connections.</h1><p className="intro">Talent Network registration is not open yet. No registration or application can be submitted from this website.</p><Link className="button" href="/careers">View Careers information →</Link></section>;}
