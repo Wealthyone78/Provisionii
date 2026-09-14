@@ -18,7 +18,7 @@ export default function Navigation() {
     <dialog ref={dialog} className="navigation-sheet" aria-labelledby="navigation-title" aria-describedby="navigation-description" onClose={() => opener.current?.focus()}>
       <button className="menu-close" type="button" aria-label="Close navigation" onClick={close}><X size={24} /></button>
       <h2 id="navigation-title" className="menu-title">Your next connection.</h2><p id="navigation-description" className="menu-description">Explore Provisionii</p>
-      <nav aria-label="Mobile navigation" className="sheet-links">{[["Home", "/"], ...mainLinks, ["Find Talent", "/find-talent"], ["Careers information", "/careers"], ["Talk with a team member", "/contact"]].map(([title, href]) => <Link key={href} href={href} onClick={close}>{title}<ArrowUpRight size={18} /></Link>)}</nav>
+      <nav aria-label="Mobile navigation" className="sheet-links">{[["Home", "/"], ...mainLinks, ["Find Talent", "/find-talent"], ["Talk with a team member", "/contact"]].map(([title, href]) => <Link key={href} href={href} onClick={close}>{title}<ArrowUpRight size={18} /></Link>)}</nav>
     </dialog>
   </>;
 }
